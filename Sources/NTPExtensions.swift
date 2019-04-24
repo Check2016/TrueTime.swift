@@ -18,9 +18,25 @@ public extension timeval {
         withFatalErrno { sysctl(&mib, 2, &boottime, &size, nil, 0) }
         return timeval(tv_sec: now.tv_sec - boottime.tv_sec, tv_usec: now.tv_usec - boottime.tv_usec)
     }
+    
+    static func boottime() -> timeval {
+        var boottime = timeval()
+        var mib: [CInt] = [CTL_KERN, KERN_BOOTTIME]
+        var size = MemoryLayout.stride(ofValue: boottime)
+        withFatalErrno { sysctl(&mib, 2, &boottime, &size, nil, 0) }
+        return boottime
+    }
 
     var milliseconds: Int64 {
         return Int64(tv_sec) * Int64(MSEC_PER_SEC) + Int64(tv_usec) / Int64(USEC_PER_MSEC)
+    }
+    
+    static func fromMilliseconds(milliseconds : Int64) -> timeval {
+        
+        let sec = Int(milliseconds / Int64(MSEC_PER_SEC))
+        let usec = Int32(milliseconds - Int64(sec) * Int64(MSEC_PER_SEC)) * Int32(USEC_PER_MSEC)
+        
+        return timeval(tv_sec: sec, tv_usec: usec)
     }
 }
 
@@ -29,6 +45,16 @@ extension timeval {
         var tv = timeval()
         withFatalErrno { gettimeofday(&tv, nil) }
         return tv
+    }
+}
+
+extension Date {
+    func toMilliseconds() -> Int64! {
+        return Int64(self.timeIntervalSince1970 * 1000)
+    }
+    
+    static func fromMilliseconds(milliseconds : Int64) -> Date {
+        return Date(timeIntervalSince1970: Double(millis) / 1000.0)
     }
 }
 
