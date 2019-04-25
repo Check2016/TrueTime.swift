@@ -191,6 +191,8 @@ private extension NTPClient {
                 return
             }
 
+            let isFirstResult = results.count == 0
+                                            
             let host = connection.address.host
             results[host] = (results[host] ?? []) + [result]
 
@@ -217,37 +219,36 @@ private extension NTPClient {
                 }
 
                 if atEnd {
-                    self.finish(.success(referenceTime))
+                    self.finish(.success(referenceTime), isFirstResult: isFirstResult)
                 } else {
-                    self.updateProgress(.success(referenceTime))
+                    self.updateProgress(.success(referenceTime), isFirstResult: isFirstResult)
                 }
             } else if atEnd {
-                self.finish(.failure(result.error ?? NSError(trueTimeError: .noValidPacket)))
+                self.finish(.failure(result.error ?? NSError(trueTimeError: .noValidPacket)), isFirstResult: isFirstResult)
             }
         }
     }
 
-    func updateProgress(_ result: ReferenceTimeResult) {
+    func updateProgress(_ result: ReferenceTimeResult, isFirstResult: Bool = false) {
         let endTime = CFAbsoluteTimeGetCurrent()
-        let hasStartCallbacks = !startCallbacks.isEmpty
         startCallbacks.forEach { queue, callback in
             queue.async {
                 callback(result)
             }
         }
         startCallbacks = []
-        if hasStartCallbacks {
+        if isFirstResult {
             logDuration(endTime, to: "get first result")
             
             NotificationCenter.default.post(Notification(name: .TrueTimeFirstUpdate, object: self, userInfo: nil))
         }
-
+        
         NotificationCenter.default.post(Notification(name: .TrueTimeUpdated, object: self, userInfo: nil))
     }
 
-    func finish(_ result: ReferenceTimeResult) {
+    func finish(_ result: ReferenceTimeResult, isFirstResult: Bool = false) {
         let endTime = CFAbsoluteTimeGetCurrent()
-        updateProgress(result)
+        updateProgress(result, isFirstResult: isFirstResult)
         completionCallbacks.forEach { queue, callback in
             queue.async {
                 callback(result)

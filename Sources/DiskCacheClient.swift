@@ -41,7 +41,6 @@ import Foundation
             let cachedBootTime = cache.get(key: DiskCacheClient.keyCachedBootTime, defaultValue: Int64(0))
             
             if cachedBootTime > Int64(0) && cachedBootTime == timeval.boottime().milliseconds {
-                
                 return true
             }
         }
