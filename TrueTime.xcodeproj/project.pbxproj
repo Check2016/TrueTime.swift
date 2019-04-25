@@ -11,6 +11,12 @@
 		1FD58C1D2270C274006D7769 /* DiskCacheClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1C2270C274006D7769 /* DiskCacheClient.swift */; };
 		1FD58C1F2270CD46006D7769 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1E2270CD46006D7769 /* CacheProtocol.swift */; };
 		1FEC2BA52271D10100981482 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC2BA42271D10100981482 /* UserDefaultsCache.swift */; };
+		1FEC2BA72271E6A100981482 /* DiskCacheClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1C2270C274006D7769 /* DiskCacheClient.swift */; };
+		1FEC2BA82271E6A200981482 /* DiskCacheClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1C2270C274006D7769 /* DiskCacheClient.swift */; };
+		1FEC2BA92271E6A500981482 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1E2270CD46006D7769 /* CacheProtocol.swift */; };
+		1FEC2BAA2271E6A500981482 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1E2270CD46006D7769 /* CacheProtocol.swift */; };
+		1FEC2BAB2271E6A800981482 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC2BA42271D10100981482 /* UserDefaultsCache.swift */; };
+		1FEC2BAC2271E6A800981482 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC2BA42271D10100981482 /* UserDefaultsCache.swift */; };
 		2800902E1D444AD5004C788E /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800902D1D444AD5004C788E /* SwiftCheck.framework */; };
 		2800904F1D444B64004C788E /* TrueTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287C37B41D4419F800084D47 /* TrueTime.framework */; };
 		280090561D444B85004C788E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280090301D444AE5004C788E /* Nimble.framework */; };
@@ -935,8 +941,11 @@
 				28BD08431D6257DA00D9981C /* TrueTime.m in Sources */,
 				2874855D1DB1DFB90020B777 /* NTPResponse.swift in Sources */,
 				286662941D5B82BE002CA06B /* HostResolver.swift in Sources */,
+				1FEC2BAA2271E6A500981482 /* CacheProtocol.swift in Sources */,
 				28A88AAB1DC1AA2800E1B8C3 /* ReferenceTime.swift in Sources */,
+				1FEC2BA82271E6A200981482 /* DiskCacheClient.swift in Sources */,
 				286662921D5B82BB002CA06B /* NTPConnection.swift in Sources */,
+				1FEC2BAC2271E6A800981482 /* UserDefaultsCache.swift in Sources */,
 				285047EA1D4D67B800DE4CE8 /* NTPExtensions.swift in Sources */,
 				288334C21DAF200000A38C7C /* NTPClient.swift in Sources */,
 			);
@@ -965,8 +974,11 @@
 				28BD08421D6257DA00D9981C /* TrueTime.m in Sources */,
 				2874855C1DB1DFB80020B777 /* NTPResponse.swift in Sources */,
 				286662931D5B82BD002CA06B /* HostResolver.swift in Sources */,
+				1FEC2BA92271E6A500981482 /* CacheProtocol.swift in Sources */,
 				28A88AAA1DC1AA2700E1B8C3 /* ReferenceTime.swift in Sources */,
+				1FEC2BA72271E6A100981482 /* DiskCacheClient.swift in Sources */,
 				286662911D5B82BA002CA06B /* NTPConnection.swift in Sources */,
+				1FEC2BAB2271E6A800981482 /* UserDefaultsCache.swift in Sources */,
 				2800906D1D45489D004C788E /* NTPExtensions.swift in Sources */,
 				288334C11DAF200000A38C7C /* NTPClient.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class DiskCacheClient : NSObject {
+@objc public class DiskCacheClient : NSObject {
     
     static let keyCachedTime = "cachedTime"
     static let keyCachedUptime = "cachedUptime"
