@@ -75,7 +75,7 @@ public typealias LogCallback = (String) -> Void
     }
     
     @objc public func enableCaching(_ cacheProtocol : CacheProtocol) {
-        diskCachingClient.enableCacheProtocol(cacheProtocol)
+        ntp.diskCachingClient.enableCacheProtocol(cacheProtocol)
     }
 
     public func fetchIfNeeded(queue callbackQueue: DispatchQueue = .main,
@@ -92,26 +92,16 @@ public typealias LogCallback = (String) -> Void
     }
 #endif
 
-    @objc public var referenceTime: ReferenceTime? {
-        if let ntpReferenceTime : ReferenceTime = ntp.referenceTime {
-            return ntpReferenceTime
-        }else if diskCachingClient.isCacheValid() {
-            return diskCachingClient.getCachedReferenceTime()
-        }else{
-            return nil
-        }
-    }
-    
+    @objc public var referenceTime: ReferenceTime? { return ntp.referenceTime }
+    @objc public var cachedFirstTime: Date? { return ntp.diskCachingClient.getCachedFirstTime() }
     @objc public var timeout: TimeInterval { return config.timeout }
     @objc public var maxRetries: Int { return config.maxRetries }
     @objc public var maxConnections: Int { return config.maxConnections }
-    @objc public var maxServers: Int { return config.maxServers}
-    @objc public var numberOfSamples: Int { return config.numberOfSamples}
+    @objc public var maxServers: Int { return config.maxServers }
+    @objc public var numberOfSamples: Int { return config.numberOfSamples }
 
     private let config: NTPConfig
     private let ntp: NTPClient
-    
-    private let diskCachingClient = DiskCacheClient()
 }
 
 extension TrueTimeClient {

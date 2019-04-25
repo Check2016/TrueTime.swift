@@ -10,6 +10,7 @@
 		05CEA58A1FFC5AC5002624AC /* Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA5871FFC5A80002624AC /* Bridging.m */; };
 		1FD58C1D2270C274006D7769 /* DiskCacheClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1C2270C274006D7769 /* DiskCacheClient.swift */; };
 		1FD58C1F2270CD46006D7769 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD58C1E2270CD46006D7769 /* CacheProtocol.swift */; };
+		1FEC2BA52271D10100981482 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC2BA42271D10100981482 /* UserDefaultsCache.swift */; };
 		2800902E1D444AD5004C788E /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800902D1D444AD5004C788E /* SwiftCheck.framework */; };
 		2800904F1D444B64004C788E /* TrueTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287C37B41D4419F800084D47 /* TrueTime.framework */; };
 		280090561D444B85004C788E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280090301D444AE5004C788E /* Nimble.framework */; };
@@ -135,6 +136,7 @@
 		05CEA5871FFC5A80002624AC /* Bridging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bridging.m; sourceTree = "<group>"; };
 		1FD58C1C2270C274006D7769 /* DiskCacheClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCacheClient.swift; sourceTree = "<group>"; };
 		1FD58C1E2270CD46006D7769 /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
+		1FEC2BA42271D10100981482 /* UserDefaultsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCache.swift; sourceTree = "<group>"; };
 		2800902D1D444AD5004C788E /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCheck.framework; path = Carthage/Build/iOS/SwiftCheck.framework; sourceTree = "<group>"; };
 		280090301D444AE5004C788E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		280090311D444AE5004C788E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				280090601D45489D004C788E /* Info.plist */,
 				1FD58C1C2270C274006D7769 /* DiskCacheClient.swift */,
 				1FD58C1E2270CD46006D7769 /* CacheProtocol.swift */,
+				1FEC2BA42271D10100981482 /* UserDefaultsCache.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				28A88AA91DC1AA1600E1B8C3 /* ReferenceTime.swift in Sources */,
 				1FD58C1D2270C274006D7769 /* DiskCacheClient.swift in Sources */,
 				286662901D5B7721002CA06B /* NTPConnection.swift in Sources */,
+				1FEC2BA52271D10100981482 /* UserDefaultsCache.swift in Sources */,
 				2800906C1D45489D004C788E /* NTPExtensions.swift in Sources */,
 				288334C01DAF200000A38C7C /* NTPClient.swift in Sources */,
 			);

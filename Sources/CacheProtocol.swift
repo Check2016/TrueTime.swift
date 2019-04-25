@@ -12,7 +12,9 @@ import Foundation
     
     func set(key: String, value: Int64)
     
-    func get(key: String) -> Int64?
+    func get(key: String, defaultValue: Int64) -> Int64
     
+    //Some cache implementations may need explicit flushing
+    //to be more efficent with when and how often they write to disk
     func flush()
 }

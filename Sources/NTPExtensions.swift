@@ -54,7 +54,7 @@ extension Date {
     }
     
     static func fromMilliseconds(milliseconds : Int64) -> Date {
-        return Date(timeIntervalSince1970: Double(millis) / 1000.0)
+        return Date(timeIntervalSince1970: Double(milliseconds) / 1000.0)
     }
 }
 

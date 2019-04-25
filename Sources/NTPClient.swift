@@ -71,7 +71,13 @@ final class NTPClient {
 
     private let referenceTimeLock: GCDLock<ReferenceTime?> = GCDLock(value: nil)
     var referenceTime: ReferenceTime? {
-        get { return referenceTimeLock.read() }
+        get {
+            if let ntpRefTime : ReferenceTime = referenceTimeLock.read() {
+                return ntpRefTime
+            }else{
+                return diskCachingClient.getCachedReferenceTime()
+            }
+        }
         set { referenceTimeLock.write(newValue) }
     }
 
@@ -95,6 +101,7 @@ final class NTPClient {
     private var pool: [String] = [] {
         didSet { invalidate() }
     }
+    var diskCachingClient = DiskCacheClient()
 }
 
 private extension NTPClient {
@@ -248,6 +255,11 @@ private extension NTPClient {
         logDuration(endTime, to: "get last result")
         finished = result.value != nil
         stopQueue()
+        
+        if let refTime : ReferenceTime = result.value {
+            diskCachingClient.cacheReferenceTime(refTime)
+        }
+        
         startTimer()
     }
 
