@@ -22,4 +22,7 @@ FOUNDATION_EXPORT NSString * const TrueTimeErrorDomain;
 //! Notification sent whenever a TrueTimeClient's reference time is updated.
 FOUNDATION_EXPORT NSString * const TrueTimeUpdatedNotification;
 
+//! Notification sent whenever a TrueTimeClient's reference time is updated with the first result.
+FOUNDATION_EXPORT NSString * const TrueTimeFirstUpdateNotification;
+
 NS_ASSUME_NONNULL_END

@@ -238,6 +238,8 @@ private extension NTPClient {
         startCallbacks = []
         if hasStartCallbacks {
             logDuration(endTime, to: "get first result")
+            
+            NotificationCenter.default.post(Notification(name: .TrueTimeFirstUpdate, object: self, userInfo: nil))
         }
 
         NotificationCenter.default.post(Notification(name: .TrueTimeUpdated, object: self, userInfo: nil))
