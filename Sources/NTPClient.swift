@@ -259,8 +259,10 @@ private extension NTPClient {
         finished = result.value != nil
         stopQueue()
         
-        if let refTime : ReferenceTime = result.value {
+        if finished, let refTime : ReferenceTime = result.value {
             diskCachingClient.cacheReferenceTime(refTime)
+            
+            NotificationCenter.default.post(Notification(name: .TrueTimeFinishedUpdating, object: self, userInfo: nil))
         }
         
         startTimer()

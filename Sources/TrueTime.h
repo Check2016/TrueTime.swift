@@ -25,4 +25,8 @@ FOUNDATION_EXPORT NSString * const TrueTimeUpdatedNotification;
 //! Notification sent whenever a TrueTimeClient's reference time is updated with the first result.
 FOUNDATION_EXPORT NSString * const TrueTimeFirstUpdateNotification;
 
+//! Notification sent whenever a TrueTimeClient's reference time finished updating.
+//! (only sent when update was successful/when the reference time was updated with a new value)
+FOUNDATION_EXPORT NSString * const TrueTimeFinishedUpdatingNotification;
+
 NS_ASSUME_NONNULL_END

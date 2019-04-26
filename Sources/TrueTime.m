@@ -11,3 +11,4 @@
 NSString * const TrueTimeErrorDomain = @"com.instacart.TrueTimeErrorDomain";
 NSString * const TrueTimeUpdatedNotification = @"TrueTimeUpdatedNotification";
 NSString * const TrueTimeFirstUpdateNotification = @"TrueTimeFirstUpdateNotification";
+NSString * const TrueTimeFinishedUpdatingNotification = @"TrueTimeFinishedUpdatingNotification";
